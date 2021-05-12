@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,30 +34,23 @@
                 
                 <form  id="myForm" method="post">
                         <div class="logo">
-                            <input class="textfield" type="text" name="name" id="n" placeholder=" Enter your Name" >
+                            <input class="textfield" type="text" name="name" id="name" placeholder=" Enter your Name" >
                             <input  class="textfield" type="text" name="nickname" id="nikename" placeholder="What do you want us to call you?">
-                            
                             
                         </div> <br class="hide">
                         
                         <div class="logo">
-                        <input class="textfield" type="text" name="mobile" id="m" placeholder=" Phone Number">
-                        <input  class="textfield" type="text" name="email-id" id="e" placeholder=" Email Id">
-                            
-                            
+                        <input class="textfield" type="tel" name="mobile" id="phone" placeholder=" Phone Number" pattern="[0-9]{3}[0-9]{2}[0-9]{3}[0-9]{2}" required>
+                        <input  class="textfield" type="email" name="email-id" id="email" placeholder=" Email Id">
                             
                         </div> <br class="hide">
 
                         <div class="logo">
                             <input class="textfield" type="password" name="password" id="password" onkeyup='check();' placeholder="create password" required>
                             <input  class="textfield" type="password" name="confirm_password" id="confirm_password" placeholder="confirm password" onkeyup='check();'>
-                        </div><br class="hide">
-
-                        <!-- <input name="password" id="password" type="password" onkeyup='check();' placeholder="create password" required/><br> -->
+                        </div>
                     
-                    <span id='message'></span><br>
-                    <!-- <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm password" onkeyup='check();' /> <br> -->
-                    
+                        <span id='message'></span><br class="hide">
 
                         <div class="logo register">       
                             <input type="submit" name='submit' value="Register" onclick="myfunction()">                           
