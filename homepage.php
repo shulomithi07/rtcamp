@@ -12,6 +12,24 @@
 
     ?>
 
+
+    <?php
+        
+        session_start();
+
+        if(!isset($_SESSION['username'])){
+            ?>
+                <script>
+                    alert("You Are Logged Out");
+                </script>
+            <?php
+            echo "you are logged out";
+            header('location:login.php');
+        }
+
+
+    ?>
+
 </head>
 <body>
 
