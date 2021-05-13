@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     include 'connection.php';
 
     $file = $_FILES['file'];
@@ -24,39 +26,41 @@
 
     $s = move_uploaded_file($filepath,$destinationfile);
 
+    $email = $_SESSION['email'];
+
     if($s){
-    ?>    
-        <script>
-            alert("tada Uploaded!");
 
-            // location.replace("form.php");
-        </script>
+        $checkVideo = "SELECT * FROM videos where video='$destinationfile'";
+
+        $videoquery = mysqli_query($con,$checkVideo);
+
+        $exists = mysqli_num_rows($videoquery);
+
+        // echo $exists;
+
+        if($exists>0){
+            echo 'Seems you already have this video Try an other one :)';
+        }
+
+        else{
+
+            $videoinsert = "INSERT INTO videos (email,video) VALUES('$email','$destinationfile')";
+
+            $query = mysqli_query($con,$videoinsert);
+        
+            if($query){
+        
+                echo "video uploaded<br>";
+            }
+        
+            else{
+        
+                echo "not inserted";
+            }
+        }
+    } 
     
-    <?php
-    
-        } else {
-        echo "move_uploaded_file function failed";
-    }
-
-
-    // $videoinsert = "INSERT INTO videos (email,video) VALUES('$email','$destinationfile')";
-
-    // $query = mysqli_query($con,$videoinsert);
-
-    // if($query){
-
-    //     // echo "video inserted<br>";
-    
-    //         <script>
-    //             alert("tada Uploaded!");
-
-    //             location.replace("form.php");
-    //         </script>
-    //     <?php
-    // }
-
-    // else{
-
-    //     echo "not inserted";
-    // }
+    else {
+        echo "error while processing file please upload file again.";
+    }    
 ?>
