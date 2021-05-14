@@ -8,13 +8,11 @@
 <html lang="en">
 <head>
     <title>Document</title>
-    <?php include 'links.php' ?>
+
     <?php include 'css/style.php' ?>
     <?php include 'scripts/script.php'?>
     <?php include 'connection.php' ?>
-    <?php 
-            session_start();
-    ?>
+    
 
 </head>
 <body>
@@ -93,9 +91,15 @@
 
             $_SESSION['email'] = $email;
 
-            echo $_SESSION['nickname']."<br>";
+            $_SESSION['username'] = $emailPassword['name'];
 
-            echo $_SESSION['email']."<br>";
+
+
+            $token = bin2hex(random_bytes(12));
+
+            // echo $_SESSION['nickname']."<br>";
+
+            // echo $_SESSION['email']."<br>";
 
             // $password_decrypt = password_verify($pass,$password_encrypt);
 
@@ -116,22 +120,48 @@
             }
             else{
 
-                $query = "INSERT INTO members (name, nickname, phoneNo, email, password) 
-                VALUES ('$name','$nickname','$mobile','$email','$password_encrypt')";
+                
+
+                $query = "INSERT INTO members (name, nickname, phone, email, password, token, status) 
+                VALUES ('$name','$nickname','$mobile','$email','$password_encrypt','$token','inactive')";
 
                 $res = mysqli_query($con,$query);
 
                 if($res){
-                    ?>
-                    <script>
-                        // alert('Data Inserted Succesfully');
 
-                        alert("Thanks for Signing UP!");
+                    
+                    $to = $email;
+                    $subject = "Activation Link";
+                    $txt = "Hello  {$nickname} Click here to activate your account 
+                    http://localhost:8080/okay/project/activation.php?token=".$token; 
+                    
+                    $headers = "From: shulomithi07@gmail.com";
 
-                        location.replace("homepage.php");
+                    $a  = mail($to,$subject,$txt,$headers);
 
-                    </script>
-                    <?php
+                    if($a){
+
+                        $_SESSION['msg'] = "Check your email for activation {$email}";
+
+                        // $_SESSION['message'] = "check your mail";
+                        ?>
+                        <script>
+
+                                alert("redirecting");
+
+                                location.replace("login.php");
+                            
+                        </script>
+
+                        <?php
+                        // header('location:login.php');
+                        // echo "successfull".$to; 
+                    }
+                    else{
+
+                        echo "not";
+                    }
+
                 }
                 else{
                     ?>

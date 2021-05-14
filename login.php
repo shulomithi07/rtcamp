@@ -27,7 +27,7 @@ include 'css/style.php';
             $email= $_POST['email'];
             $CheckPassword = $_POST['password'];
 
-            $emailQuery = "SELECT * FROM members WHERE email ='$email'";
+            $emailQuery = "SELECT * FROM members WHERE email ='$email'and status='active'";
             // SELECT * FROM `members` WHERE email='shiny';
             
 
@@ -102,6 +102,20 @@ include 'css/style.php';
     <div class="container">
 
         <div class="right">
+
+            <?php
+                
+                // echo $_SESSION['nickname'];
+
+                    if(isset($_SESSION['msg'])){
+                        echo $_SESSION['msg'];
+                    }
+                    else{
+                        echo $_SESSION['msg'] = "Seems you logged out try logging in again";
+                    }
+                    // echo $_SESSION['message'];
+                
+            ?>
         
             <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
             
