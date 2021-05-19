@@ -1,66 +1,70 @@
 <?php
 
-    session_start();
+session_start();
 
-    include 'connection.php';
+include "connection.php";
 
-    $file = $_FILES['file'];
-    // echo "<pre>";
+if (empty($_FILES["file1"]["tmp_name"])){
+    echo "Select File!";
+}else{
 
-    // print_r ($file);
-
-    // echo "<pre>";
-
-    $fileName = $file['name']; // The file name
-    $filepath = $file['tmp_name']; // File in the PHP tmp folder
-    $fileType = $file['type']; // The type of file it is
-    $fileSize = $file['size']; // File size in bytes
-    $fileErrorMsg = $file['error']; // 0 for false... and 1 for true
-    if (!$filepath) { // if file not chosen
-        echo "ERROR: Please browse for a file before clicking the upload button.";
+    $fileName = $_FILES["file1"]["name"]; // The file name
+    $fileTmpLoc = $_FILES["file1"]["tmp_name"]; // File in the PHP tmp folder
+    $fileType = $_FILES["file1"]["type"]; // The type of file it is
+    $fileSize = $_FILES["file1"]["size"]; // File size in bytes
+    $fileErrorMsg = $_FILES["file1"]["error"]; // 0 for false... and 1 for true
+    if (!$fileTmpLoc) { // if file not chosen
+        echo "ERROR: Please Check browse for a file before clicking the upload button.";
         exit();
     }
+    if(move_uploaded_file($fileTmpLoc, "uploads/$fileName")){
+        echo "$fileName upload is complete";
 
-    $destinationfile = 'uploads/'.$fileName;
-    // echo $destinationfile;
+        $destinationfile = 'uploads/'.$fileName;
 
-    $s = move_uploaded_file($filepath,$destinationfile);
+        echo $destinationfile."<br>";
 
-    $email = $_SESSION['email'];
+        $email = $_SESSION['email'];
+        
+        echo $email."<br>";
 
-    if($s){
+        $checkquery = "SELECT id FROM videos where email = '$email' and video = '$destinationfile'";
 
-        $checkVideo = "SELECT * FROM videos where video='$destinationfile'";
 
-        $videoquery = mysqli_query($con,$checkVideo);
+        $execute = mysqli_query($con,$checkquery);
 
-        $exists = mysqli_num_rows($videoquery);
+        $emailcount = mysqli_num_rows($execute);
 
-        // echo $exists;
+        echo $emailcount;
 
-        if($exists>0){
-            echo 'Seems you already have this video Try an other one :)';
+
+        if($emailcount>0){
+            echo "You already have the video";
         }
-
         else{
-
             $videoinsert = "INSERT INTO videos (email,video) VALUES('$email','$destinationfile')";
 
             $query = mysqli_query($con,$videoinsert);
-        
+
             if($query){
-        
-                echo "video uploaded<br>";
+                echo "video inserted<br>";
+                // header('Location: /'.$_SERVER["homepage.php"]);
+?>
+                <meta http-equiv="refresh" content="1">
+ <?php
+ //  -->
             }
-        
+
             else{
-        
+
                 echo "not inserted";
             }
         }
-    } 
-    
+
+
+    }
     else {
-        echo "error while processing file please upload file again.";
-    }    
+        echo "Something Happened Please try to upload again";
+    }
+}
 ?>
