@@ -3,7 +3,7 @@
     $username = "root";
     $password = "";
     $server = 'localhost';
-    $database = 'videos';
+    $database = 'activation';
 
 
     $con = mysqli_connect($server,$username,$password,$database);
