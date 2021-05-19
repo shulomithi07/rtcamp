@@ -1,0 +1,9 @@
+{
+
+    "require": {
+        "php-ffmpeg/php-ffmpeg": "dev-master"
+    }
+
+    
+
+}
