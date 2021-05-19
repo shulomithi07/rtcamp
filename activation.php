@@ -26,7 +26,7 @@ if(isset($_GET['token'])){
     }
     else{
         $_SESSION['msg'] = "Something happened please try again!";
-        header('location:index.php');
+        header('location:signup.php');
     }
 }
 
