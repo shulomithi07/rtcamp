@@ -20,6 +20,8 @@ body{
 
 
 nav{
+    position:sticky;
+    top:0;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
@@ -27,6 +29,7 @@ nav{
 }
 
 nav a{
+    background-color: rgba(31, 40, 51, 0.4);
     color:#66fcf1;
     text-decoration: none;
     text-shadow: 0px 0px 1px #fff, 
@@ -48,6 +51,22 @@ nav a{
     top: 0;
 }
 
+.greeting{
+        width:50vw;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+        font-size:5vw;
+        flex-direction:wrap;
+        gap:1vw;
+
+    }
+
+.greeting h3{
+    align-self:center;
+}
+
 
 
 @media only screen and (min-width: 1201px) {
@@ -65,7 +84,7 @@ nav a{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 5vw;
+        font-size: 3vw;
         padding: 2vw;
         padding-bottom: 7vh;
         text-transform: uppercase;
@@ -142,7 +161,7 @@ nav a{
         justify-content: space-evenly;
         align-items: center;
         /* flex-direction: column;x */
-        font-size: 5vw;
+        font-size: 3vw;
         padding: 2vw;
         padding-bottom: 7vh;
         text-transform: uppercase;
@@ -225,7 +244,7 @@ nav a{
         justify-content: space-evenly;
         align-items: center;
         flex-direction: column;
-        font-size: 5vw;
+        font-size: 4vw;
         padding: 2vw;
         padding-bottom: 5vh;
         text-transform: uppercase;
@@ -233,8 +252,28 @@ nav a{
 
     }
 
+
+    .greeting{
+        width:100vw;
+        height:20vh;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+        font-size:5vw;
+        flex-direction:wrap;
+        gap:1vw;
+
+    }
+
+    .greeting h3{
+        align-self:center;
+    }
+
+
     .image{
-        width: 50vw;
+        width: 70vw;
+        /* height:100vh; */
     }
     
 }
@@ -268,6 +307,10 @@ nav a{
         padding: 2vh;
         font-size: 2vh;
         font-family: cursive;
+    }
+    
+    input[type=text]{
+        color:white;
     }
 
     .btn{
@@ -316,14 +359,18 @@ nav a{
         font-family: cursive;
     }
 
+    input[type=text]{
+        color:white;
+    }
+
     .btn{
 
-        width:10vw;
+        width:20vw;
         height: 5vh;
         border-radius: 2vh;
         background: rgb(63,250,251);
         background: radial-gradient(circle, rgba(63,250,251,1) 0%, rgba(69,162,158,1) 100%);
-        font-size: 2vw;
+        font-size: 2.5vw;
         text-shadow: 0px 0px 1px #000, 
                 0px 0px 2px black;
     }
@@ -438,10 +485,4 @@ nav a{
     display: flex;
     justify-content: center;
 }
-
-
-
-
-
-
 </style>
