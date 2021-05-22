@@ -50,8 +50,8 @@ include 'css/loginCSS.php';
                 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
                     <div class="first">
             
-                        <input type="text" name="email" id="email" placeholder="email"><br class="hide"><br class="hide"><br>
-                        <input type="text" name="password" id="password" placeholder="password"><br class="hide">
+                        <input type="text" name="email" id="email" placeholder="email" required><br class="hide"><br class="hide"><br>
+                        <input type="password" name="password" id="password" placeholder="password" required><br class="hide">
                     </div>
 
             </div>
@@ -67,94 +67,87 @@ include 'css/loginCSS.php';
 </html>
 
 
-
-<?php
+        <?php
+        if(isset($_POST['submit'])){
     
-    if(isset($_POST['submit'])){
-            
-        $email = mysqli_real_escape_string($con,$_POST['email']);
-        $CheckPassword  = mysqli_real_escape_string($con,$_POST['password']);
-    
-        // $email = $_POST['email'];
-        // $CheckPassword = $_POST['password'];
-
-        if($email == "" || $CheckPassword == ""){
-            ?>
-            <script>
-                alert("Enter the requried fields");
-            </script>
-            <?php
-        }
-        else{
-            // $email = $_POST['email'];
-            // $CheckPassword = $_POST['password'];
-
-            $checkEmailQuery = "SELECT * FROM signup WHERE email = '$email' and status ='active'";
-            
-            $querycheck = mysqli_query($con,$checkEmailQuery);
+            $email = $_POST['email'];
+            $CheckPassword = $_POST['password'];
 
 
-            if(!empty($querycheck)){
-
-
-                // if ($result = mysqli_query($con,$checkEmailQuery) && mysqli_num_rows($result) > 0) {
-                    // there are results in $result
-                // } else {
-                //     // no results
-                // }
-                // if($querycheck = mysqli_query($con,$checkEmailQuery) &&mysqli_num_rows($querycheck)>0 ){
-
-                echo $checkEmailQuery."<br>";
-
-                $loginDetails = mysqli_fetch_assoc($querycheck);
-
-                $userLoginPassword = $loginDetails['password'];
-
-                $_SESSION['username'] = $loginDetails['name'];
-                $_SESSION['email'] = $loginDetails['email'];
-                $_SESSION['nickname'] = $loginDetails['nickname'];
-
-                echo "<br>";
-                echo $_SESSION['username']."<br>".$_SESSION['email']."<br>".$_SESSION['nickname']."<br>";
-
-                $passwordCheck = password_verify($CheckPassword,$userLoginPassword);
-
-                if($passwordCheck){
-                    ?>
-
-                        <script>
-
-                            location.replace("homepage.php");
-
-                        </script>
-
-                    <?php
-                }
-                else{
-
-                    ?>
-
-                    <script>
-                    
-                            alert ("Incorrect Password");
-                    </script>
-
-                    <?php
-                }
-            }
-            else{
+            if($email == "" || $CheckPassword == ""){
                 ?>
-
-                    <script>
-
-                        alert("Email doesn't exists, Try TO Sign Up");
-                    </script>
-
+                <script>
+                    alert("Enter the requried fields");
+                </script>
                 <?php
             }
+            else{
+            
+                $checkEmailQuery = "SELECT * FROM users WHERE email = '$email' and status ='active'";
+                
+                $querycheck = mysqli_query($con,$checkEmailQuery);
+        
+        
+                // if(!empty($querycheck)){
+        
+        
+            if (mysqli_num_rows(mysqli_query($con,$checkEmailQuery)) > 0) {
+                    // there are results in $result
+                    // } else {
+                    //     // no results
+                    // }
+                    // if($querycheck = mysqli_query($con,$checkEmailQuery) &&mysqli_num_rows($querycheck)>0 ){
+        
+                    // echo $checkEmailQuery."<br>";
+        
+                    $loginDetails = mysqli_fetch_assoc($querycheck);
+        
+                    $userLoginPassword = $loginDetails['password'];
+        
+                    // $_SESSION['username'] = $loginDetails['username'];
+                    $_SESSION['email'] = $loginDetails['email'];
+                    $_SESSION['nickname'] = $loginDetails['nickname'];
+        
+                    // echo $_SESSION['email']."<br>".$_SESSION['email']."<br>".$_SESSION['nickname']."<br>";
+        
+                    $passwordCheck = password_verify($CheckPassword,$userLoginPassword);
+        
+                    if($passwordCheck){
+                        ?>
+        
+                            <script>
+        
+                                location.replace("homepage.php");
+        
+                            </script>
+        
+                        <?php
+                    }
+                    else{
+        
+                        ?>
+        
+                        <script>
+                        
+                                alert ("Incorrect Password");
+                        </script>
+        
+                        <?php
+                    }
+                }
+                else{
+                    ?>
+        
+                        <script>
+        
+                            alert("Email doesn't exists, Try TO Sign Up");
+                        </script>
+        
+                    <?php
+                }
+            }
+        
         }
-
-    }
-
-    ?>
-
+        
+        ?>
+    

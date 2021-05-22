@@ -22,14 +22,20 @@
         include "css/homepageCSS.php";
 
 
-        if(!isset($_SESSION['username'])){
-            ?>
-                <script>
-                    alert("You Are Logged Out");
-                </script>
-             <?php
-            echo "you are logged out";
-            header('location:login.php');
+        if(!isset($_SESSION['nickname'])){
+            
+            // echo "you are logged out";
+            // ?>
+            //         <script>
+
+                        // alert("redirecting");
+
+                        location.replace("login.php");
+
+            //         </script>
+            //        <?php
+  
+            // header('location:login.php');
         }
 
     
@@ -39,11 +45,15 @@
         function _(el){
         return document.getElementById(el);
         }
+        
         function uploadFile(){
+            
             var file = _("file1").files[0];
+            file1 = document.getElementById("text1").value;
             // alert(file.name+" | "+file.size+" | "+file.type);
-            var formdata = new FormData();
+            var formdata = new FormData();  
             formdata.append("file1", file);
+            formdata.append("text", file1);
             var ajax = new XMLHttpRequest();
             ajax.upload.addEventListener("progress", progressHandler, false);
             ajax.addEventListener("load", completeHandler, false);
@@ -56,7 +66,7 @@
             // _("loaded_n_total").innerHTML = "Uploaded "+event.loaded+" bytes of "+event.total;
             var percent = (event.loaded / event.total) * 100;
             _("progressBar").value = Math.round(percent);
-            _("status").innerHTML = Math.round(percent)+"% uploaded... please wait";
+            _("status").innerHTML = Math.round(percent)+"% uploaded... please wait while adding watermark";
         }
         function completeHandler(event){
             _("status").innerHTML = event.target.responseText;
@@ -121,7 +131,9 @@
     </div>
 
     <div class="intro" id="home">
-        <h3>hey <?php echo $_SESSION['nickname'] ?>!</h3>
+        <div class="greeting" >
+        <h3 >hey</h3><h3><?php echo $_SESSION['nickname'] ?>!</h3>
+        </div>
         <img class ="image" src="images/welcomee1.svg" alt="snap_the_moment">
     </div><br>
 
@@ -132,7 +144,8 @@
             <form id="upload_form" enctype="multipart/form-data" method="post">
             <div class="file-input">
                 <input type="file" name="file1" id="file1" class="file1"><br><br>
-                <input type="file" name="" id="" class="file1"><br><br>
+                <input type="text" class="file1" name="textword" id="text1"placeholder="Write your watermark text here!"><br><br>
+                <!-- <input type="text" name="text" id="text1" class="file1" placeholder="Write your watermark text here!"><br><br> -->
                 <progress id="progressBar" value="0" max="100" style="width:300px;"></progress><br><br>
                 <input class="btn" id="button" type="button" value="Upload" onclick="uploadFile()">
             </div>    
@@ -193,15 +206,15 @@
 
                             $idnam = explode("/",$row['video']);
 
-                            // print_r( $idname);
+                            // print_r( $idnam);
 
-                            $idname = $idnam[1];
+                            $idname = $idnam[2];
 
                             // echo $idname;
 
                         ?>
 
-                            <div class="row">
+                            <div class="row  <?php echo $idname; ?>">
                                 <div class="video-container">
                                     
                                     <div class="dropdown">

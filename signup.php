@@ -36,7 +36,7 @@
                 <form  id="myForm" method="post">
                     <div class="first">
                         <input class="textfield" type="text" name="name" id="name" placeholder=" Enter your Name" ><br class="hide"><br class="hide">
-                        <input  class="textfield" type="text" name="nickname" id="nikename" placeholder="Cute name to aall?">
+                        <input  class="textfield" type="text" name="nickname" id="nikename" placeholder="Cute name to call?">
                             
                     </div>
                     <div class="first">
@@ -102,19 +102,19 @@
 
             // $password_decrypt = password_verify($pass,$password_encrypt);
 
-            $emailqueryx = "SELECT * FROM members where email = '$email' and status = 'inactive'";
+            $emailqueryx = "SELECT * FROM users where email = '$email' and status = 'inactive'";
 
             $emailx = mysqli_query($con,$emailqueryx);
 
             // $emailcount = mysqli_num_rows($emailx);
 
-            if ($result = mysqli_query($con,$emailqueryx) && mysqli_num_rows($result) > 0) {
+            if ($result = mysqli_query($con,$emailqueryx) && mysqli_num_rows(mysqli_query($con,$emailqueryx)) > 0) {
                 // there are results in $result
                 $_SESSION['msg'] = "Seems that Acticavation link is sent already Try activating account :)";
                 ?>
                 <script>
 
-                    alert("redirecting");
+                    // alert("redirecting");
 
                     location.replace("login.php");
                     </script>
@@ -124,9 +124,9 @@
             }
 
             
-            $emailquery = "SELECT * FROM members where email = '$email' and status = 'active'";
+            $emailquery = "SELECT * FROM users where email = '$email' and status = 'active'";
 
-            // $emailxx = mysqli_query($con,$emailquery);
+            $emailxx = mysqli_query($con,$emailquery);
 
             // $emailcountt = mysqli_num_rows($emailxx);
 
@@ -137,7 +137,7 @@
                    ?>
                     <script>
 
-                        alert("redirecting");
+                        // alert("redirecting");
 
                         location.replace("login.php");
 
@@ -149,7 +149,7 @@
 
                 
 
-                $query = "INSERT INTO signup (name, nickname, phone, email, password, token, status) 
+                $query = "INSERT INTO users (name, nickname, phone, email, password, token, status) 
                 VALUES ('$name','$nickname','$mobile','$email','$password_encrypt','$token','inactive')";
 
                 $res = mysqli_query($con,$query);
@@ -174,7 +174,7 @@
                         ?>
                         <script>
 
-                                alert("redirecting");
+                                // alert("redirecting");
 
                                 location.replace("login.php");
                             
@@ -205,4 +205,3 @@
 
 
 ?>
-
