@@ -8,7 +8,7 @@ if(isset($_GET['token'])){
 
     $token = $_GET['token'];
 
-    $updatequery = "UPDATE signup set status= 'active' WHERE token = '$token'";
+    $updatequery = "UPDATE users set status= 'active' WHERE token = '$token'";
 
 
     $dbquery = mysqli_query($con,$updatequery);

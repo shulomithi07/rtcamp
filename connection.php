@@ -3,7 +3,7 @@
     $username = "root";
     $password = "";
     $server = 'localhost';
-    $database = 'activation';
+    $database = 'project';
 
 
     $con = mysqli_connect($server,$username,$password,$database);
@@ -12,7 +12,7 @@
         // echo "Connection established";
         ?>
         <script>
-            alert("Connection Established");
+            // alert("Connection Established");
         </script>
 
         <?php
