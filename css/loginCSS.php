@@ -143,6 +143,7 @@ body{
     
         input:focus{
             background-color:#45a29e;
+            color:#fff;
             
         }
     
@@ -281,12 +282,12 @@ body{
             background-color: #000;
             outline: none;
             border-radius: 14px;
-            color:#000;
+            color:#fff;
         }
     
         input:focus{
             background-color:#45a29e;
-            color:#000;
+            color:#fff;
             
         }
     
@@ -449,7 +450,7 @@ text-shadow: 0px 0px 1px #000,
 
     input:focus{
         background-color:#45a29e;
-        color:#000;
+        color:#fff;
         
     }
 
