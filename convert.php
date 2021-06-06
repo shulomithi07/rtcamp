@@ -1,115 +1,139 @@
 <?php
 
+session_start();
 
+// ffmpeg file used to convert the given file
 require_once('./vendor/autoload.php');
 
 include 'connection.php';
 
+
+
+// Taking videoname and format of the selected video from the URL
 if(isset($_GET['videoname']) and isset($_GET['format'])){
 
     $videoname = $_GET['videoname'];
-    
     $getextension = explode(".",$videoname);
-
-    // echo $getextension[0];
-
     $format = $_GET['format'];
-
-    // echo $videoname."<br>";
-
-
-    // echo $format;
-
-//   use FFMpeg;
-
-  $ffmpeg = FFMpeg\FFMpeg::create();
-
-
-$path = 'uploads\output\\'.$videoname;
-
-$outputpath ='uploads\\'.$getextension[0].".".$format;
-
-// echo $outputpath."<br>";
-
-// echo $path;
-
-// $ffmpeg = FFMpeg\FFMpeg::create();
-$video = $ffmpeg->open($path);
-$video
-    ->filters()
-    ->resize(new FFMpeg\Coordinate\Dimension(320, 240))
-    ->synchronize();
-// $video
-//     ->frame(FFMpeg\Coordinate\TimeCode::fromSeconds(10))
-//     ->save('frame.jpg');
-if($format == 'ogg'){
+    $path = 'uploads\output\\'.$videoname;
+    $outputpath ='uploads\\convert\\'.$getextension[0].".".$format;
+    
+    // Creating instance of the ffmpeg
+    $ffmpeg = FFMpeg\FFMpeg::create();
+    // opening the video file 
+    $video = $ffmpeg->open($path);
+    // adding dimensions to the output video
     $video
-    ->save(new FFMpeg\Format\Video\OGG(), $outputpath);
-    ?>
-        <a id= "videolink" href="<?php echo $outputpath;?>" download>
-        <script>
-            function myFunctin() {
-            
-                if (confirm("CLICK HERE TO DOWNLOAD THE VIDEO")) {
-                    if(document.getElementById('videolink').click()){
+        ->filters()
+        ->resize(new FFMpeg\Coordinate\Dimension(320, 240))
+        ->synchronize();
+
+    
+    // Coverting to ogg
+    if($format == 'ogg'){
+        // Saving file to a location in the storage which will be deleted when user logs out
+        $video
+        ->save(new FFMpeg\Format\Video\OGG(), $outputpath);
+        ?>
+            <!-- Link to download the converted file -->
+            <a id= "videolink" href="<?php echo $outputpath;?>" download>
+            <script>
+            // Function to download the converted file
+                function download() {
+                
+                    // If the confirm box is clicked yes then video is downloaded
+                    if (confirm("CLICK HERE TO DOWNLOAD THE VIDEO")) {
+                        // dynamically clicking the link tag
+                        document.getElementById('videolink').click();  // dynamicly clicking the dowload link     
                         location.replace("homepage.php");
+                    } 
+                    // If the user clicks cancle then directly redirecting to the homepage
+                    else {
+                        location.replace("homepage.php");
+                        unlink($outputpath);
                     }
+                }
                     
-                } else {
-                    alert("sorry something went wrong");
-                }
-            }
 
-            myFunctin();
+                download();
 
-        </script>
-    <?php
-}else if($format == 'mp4'){
-    $video
-    ->save(new FFMpeg\Format\Video\X264(), $outputpath);
-    ?>
-        <a id= "videolink" href="<?php echo $outputpath;?>" download>
-        <script>
-            function myFunctin() {
-            
-                if (confirm("CLICK HERE TO DOWNLOAD THE VIDEO")) {
-                    document.getElementById('videolink').click();
-                    location.replace("homepage.php");
-                } else {
-                    alert("sorry something went wrong");
-                }
-            }
+            </script>
+        <?php
 
-            myFunctin();
-
-        </script>
-    <?php
-    }    
-else if($format == 'webm'){
-    $video
-    ->save(new FFMpeg\Format\Video\WebM(), $outputpath);
-    ?>
-        <a id= "videolink" href="<?php echo $outputpath;?>" download>
-        <script>
-            function myFunctin() {
-            
-                if (confirm("CLICK HERE TO DOWNLOAD THE VIDEO")) {
-                    document.getElementById('videolink').click();
-                    location.replace("homepage.php");
-                } else {
-                    alert("sorry something went wrong");
-                }
-            }
-
-            myFunctin();
-
-        </script>
-    <?php
+        // Converting to wmv
     }
-else{
-    echo "Sorry we don't support other formats currently";
-}
+    else if($format == 'wmv'){
+        // Saving file to a location in the storage which will be deleted when user logs out
+        $video
+        ->save(new FFMpeg\Format\Video\WMV(), $outputpath);
+        ?>
+            <!-- Link to download the converted file -->
+            <a id= "videolink" href="<?php echo $outputpath;?>" download>
+            <script>
+                // Function to download the converted file
+                function download() {
+                    
+                    // If the confirm box is clicked yes then video is downloaded
+                    if (confirm("CLICK HERE TO DOWNLOAD THE VIDEO")) {
+                        // dynamically clicking the link tag
+                        document.getElementById('videolink').click();
+                        location.replace("homepage.php");    
+                    }
+                     // If the user clicks cancle then directly redirecting to the homepage 
+                    else{
+                        location.replace("homepage.php");
+                        unlink($outputpath);
+                            
+                    }
+                }
 
+
+                download();
+                
+                
+            </script>
+            
+        <?php
+    
+        // coverting to webm
+    }    
+        
+    else if($format == 'webm'){
+        $video
+        ->save(new FFMpeg\Format\Video\WebM(), $outputpath);
+        ?>
+            <!-- Link to download the  -->
+            <a id= "videolink" href="<?php echo $outputpath;?>" download>
+            <script>
+                // Function to download the mp3 to webmconverted file 
+                function download() {
+                
+                    // If the confirm box is clicked yes then video is downloaded
+                    if (confirm("CLICK HERE TO DOWNLOAD THE VIDEO")) {
+                        // dynamically clicking the link tag
+                        document.getElementById('videolink').click();
+                        location.replace("homepage.php");
+                        
+                    } 
+                    // If the user clicks cancel then directly redirecting to the homepage
+                    else {
+                        location.replace("homepage.php");
+                        unlink($outputpath);
+                    }
+                }
+
+                download();
+
+            </script>
+        <?php
+    }
+    else{
+        echo "Sorry we don't support other formats currently";
+    }
+
+    
 }
 
 ?>
+
+                        
