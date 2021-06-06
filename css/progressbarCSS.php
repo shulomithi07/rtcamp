@@ -1,6 +1,7 @@
 
 <style>
 
+/* The upload div */
 .upload{
 
     display:flex;
@@ -9,7 +10,7 @@
     flex-direction:column;
 }
 
-
+/* The value of progress bar which means the inside */
 progress[value] {
     /* Reset the default appearance */
     -webkit-appearance: none;
@@ -19,12 +20,14 @@ progress[value] {
     height: 3vh;
 }
 
+/* For different browser */
 progress[value]::-webkit-progress-bar {
     background-color: #eee;
     border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
 }
 
+/* For different browser */
 progress[value]::-webkit-progress-value {
     background-image:
         -webkit-linear-gradient(-45deg, 
@@ -39,15 +42,17 @@ progress[value]::-webkit-progress-value {
         background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
+/* For the animated strips inbetween when loading */
 @-webkit-keyframes animate-stripes {
     100% { background-position: -100px 0px; }
 }
 
+/* For the animated strips inbetween when loading */
 @keyframes animate-stripes {
     100% { background-position: -100px 0px; }
 }
 
-
+/* Before the upload is started */
 progress[value]::-webkit-progress-value::before {
     content: '0%';
     position: absolute;
@@ -55,6 +60,7 @@ progress[value]::-webkit-progress-value::before {
     top: -125%;
 }
 
+/* After the upload is started */
 progress[value]::-webkit-progress-value::after {
     content: '';
     width: 6px;
