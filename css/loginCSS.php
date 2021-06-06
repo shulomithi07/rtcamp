@@ -7,40 +7,39 @@
     
 }
 
-.text{
-
-    text-shadow: 0px 0px 1px #000, 
-               0.5px 0px 1px black;
-
-}
 
 body{
         
-    /* background-color: #55efc4; */
-    
     background-image: linear-gradient(315deg,  #66fcf1 55%,   #1f2833 50%);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
 
-
-#image{
-        width:30vw;
-        height: 10vh;
+/* background-image */
+body{
+    background-image:url("images\\5153935.jpg");
 }
 
+
+/* DONT HAVE AN ACCOUNT TEXT */
+.text{
+
+    text-shadow: 0px 0px 1px #000, 
+           0.5px 0px 1px black;
+
+}
+
+
 @media only screen and (max-width: 600px) {
-        body{
-            background-image: linear-gradient(315deg,#66fcf1  55%,    #1f2833 50%);
-        }
+        
+        /* The whole container */
         .signup{
             position: relative;
             top:0%;
             margin:7vh auto;
             padding:10vh;
-            background-color: black;
-            background-image: linear-gradient(315deg, #1f2833 55%,   #66fcf1 50%);
+            background-image: linear-gradient(315deg, rgba(102, 252, 241, 0.7) 55%, rgba(55, 100, 155, 0.2) 50%);
             color:#fcfcfd;
             width: 60vw;
             display: flex;
@@ -50,27 +49,36 @@ body{
             border-radius: 100% / 20%   ;
         }
     
-    
+        /* text color based on media query */
+        .text{
+            color:black;
+        }
+
+        /* image */
         #image{
             width:50vw;
             height:50vh;
         }
     
+        /* left of the container */
         .left{
             width: 50vw;
     
         }
     
+        /* break tag used when required */
         .hide{
             display: block;
         }
 
+        /* break tag used when required */
         .show{
             display:none;
         }
     
+        /* anchor tag */
         a{
-            background-color: #1f2833;
+            background-color: #000;
             width: 15vw;
             text-decoration: none;
             color:#66fcf1;
@@ -78,14 +86,21 @@ body{
             padding: 4vw;
             border-radius: 81% 19% 28% 72% / 79% 67% 33% 21% ;
             font-size: 2vh;
+            text-shadow: 0px 0px 1px #fff, 
+                        0px 0px 0.5px #fff;
         }
     
+        /* anchor tag on hover */
         a:hover{
-            background-color:#66fcf1;
-            color:black;
+            border-radius: 28% 72% 81% 19%  / 67% 59% 41% 33%;
+            background-color:#000;
+            color:white;
+            border:2px solid #66fcf1;
+            text-shadow: 0px 0px 1px #66fcf1, 
+                        0px 0px 0.5px #66fcf1;
         }
-    
-    
+
+        /* right block of the container  */
         .right{
 
             width: 80vw;
@@ -97,6 +112,7 @@ body{
             gap: 1vh;
         }
     
+        /* The top text WHY LATE FILL THE DETAILS AND SESSION MESSAGE */
         .top{
             align-self: center;
             color: #ffffff;
@@ -106,17 +122,22 @@ body{
             padding-right: 5vw;
             padding-top: 1vh;
             padding-bottom:1vh;
-            border-radius: 0.5vw;
             font-size: 2vh;
             border-top:2px solid #c5c6c7;
+            text-shadow: 0px 0px 1px white, 
+                         0.5px 0px 0.5px white;
+            border-radius:2vw;
         }
+
     
+        /* The form block */
         .center{
             display: flex;
             justify-content:center;
     
         }
     
+        /* The form tag */
         form{
             display: flex;
             justify-content: center;
@@ -127,10 +148,12 @@ body{
             gap: 1vh;
         }
     
+        /* Input fields */
         .first{
             justify-content: space-evenly;
         }
-    
+
+        /* The styling of input tag */
         input{
             width: 45vw;
             height:4vh;
@@ -141,286 +164,328 @@ body{
             font-size:1.7vh;
         }
     
+        /* input on focus */
         input:focus{
             background-color:#45a29e;
             color:#fff;
             
         }
     
+        /* input placeholder */
         ::placeholder{
             color:#fcfcfd;
             font-size:1.7vh;
         }
     
+        /* The login button */
         input[type=submit]{
             width:40vw;
             height: 5vh;
             text-align: center;
-            color:white;
-            background-image : linear-gradient(315deg,  #000 44%,  #0c7e78 13%);
-            text-shadow: 0px 0px 1px #000, 
-                         1px 1px 5px black;
+            color:white;                    
+            text-shadow: 0px 0px 1px white, 
+                         0.5px 0px 0.5px white;
             font-size: 2vh;
         }
 
-        .bottom{
-            align-self:center;
-            width: 45vw;
+        /* The forgot password link */
+        .forgot{
+        border:none;
+        background-color:transparent;
+        color:black;
+        text-shadow: 0px 0px 1px #000, 
+                    0px 0px 2px #fff;
+        width:30vw;
+        padding:0;
+        border-radius:2px;
+        display:flex;
+        align-self:flex-end;
+        padding-right:2vw;
         }
-    
+
+        /* The forgot password link on hover */
+        .forgot:hover{
+            border:none;
+            background-color:transparent;
+            color:#fff;
+            text-shadow: 2px 0px 3px #000, 
+                    1px 0px 1px #000;
+        }
+
         
 }
 
 
 
-@media only screen and (max-width: 1200px) and (min-width: 600px)  {
-        .example {background: green;}
-        body{
-            background-image: linear-gradient(315deg,#66fcf1  55%,    #1f2833 50%);
-        }
-        .signup{
-            position: relative;
-            top:5%;
-            margin:7vh auto;
-            padding:10vh;
-            background-color: black;
-            background-image: linear-gradient(315deg, #1f2833 55%,   #66fcf1 50%);
-            color:#fcfcfd;
-            width: 60vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: column-reverse;
-            border-radius: 100% / 20%   ;
-        }
-    
-    
-        #image{
-            width:60vw;
-            height:50vh;
-        }
-    
-        .left{
-            width: 50vw;
-    
-        }
-    
-        .hide{
-            display: block;
-        }
+@media only screen and (max-width: 900px) and (min-width: 600px)  {
+        
+    /* The main container */
+    .signup{
+        position: relative;
+        top:5%;
+        margin:7vh auto;
+        padding:10vh;
+        background-image: linear-gradient(315deg, rgba(31, 40, 51,0.5) 55%,   rgba(102, 252, 241,0.8) 50%);
+        color:#fcfcfd;
+        width: 60vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column-reverse;
+        border-radius: 100% / 20%   ;
+        gap:2rem;
+    }
 
-        .show{
-                display: none;
-        }
-    
-        a{
-            background-color: #1f2833;
-            width: 15vw;
-            text-decoration: none;
-            color:#66fcf1;
-            border:2px solid #66fcf1;
-            padding: 4vw;
-            border-radius: 81% 19% 28% 72% / 79% 67% 33% 21% ;
-            font-size: 2vh;
-            outline:none;
-        }
-    
-        a:hover{
-            
-            background-color:#66fcf1;
-            color:black;
-        }
-    
-    
-        .right{
-            width: 80vw;
-            height: 50vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 7vh;
-        }
-    
-        .top{
-            align-self: center;
-            color: #ffffff;
-            background-color :#45a29e; 
-            background-image : linear-gradient(315deg, #45a29e 44%,#000 43%);
-            padding-left: 5vw;
-            padding-right: 5vw;
-            padding-top: 1vh;
-            padding-bottom:1vh;
-            border-radius: 0.5vw;
-            font-size: 2vh;
-            border-top:2px solid #c5c6c7;
-        }
-    
-        .center{
-            display: flex;
-            justify-content:center;
-    
-        }
-    
-        form{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            width: 40vw;
-            height: 20vh;
-            justify-content: center;
-            gap: 2vh;
-        }
-    
-        .first{
-            justify-content: space-evenly;
-        }
-    
-        input{
-            width: 45vw;
-            height:4vh;
-            background-color: #000;
-            outline: none;
-            border-radius: 14px;
-            color:#fff;
-        }
-    
-        input:focus{
-            background-color:#45a29e;
-            color:#fff;
-            
-        }
-    
-        ::placeholder{
-            color:#fcfcfd;
-            font-size:1.5vh;
-        }
-    
-        input[type=submit]{
-            width:30vw;
-            height: 5vh;
-            text-align: center;
-            color:white;
-            /* background-image : linear-gradient(315deg,  #1f2833 44%,  #0c7e78 13%); */
-            background-image : linear-gradient(315deg, #45a29e 44%,#000 43%);
-            font-size: 2vh;
-            text-shadow: 0px 0px 1px #000, 
-               1px 1px 5px black;
+    /* The image tag size adjustment */
+    #image{
+        width:50vw;
+        height:30vh;
+    }
 
-            
-        }
-    
-      }
+    /* The image block */
+    .left{
+        padding-top:4vh;
+        width: 50vw;
+        height:50vh;
+
+    }
+
+    /* The break tag used when required */
+    .hide{
+        display: block;
+    }
+
+    /* The break tag used when required */
+    .show{
+            display: none;
+    }
+
+    /* Anchor tag */
+    a{
+        background-color: #111;
+        width: 15vw;
+        text-decoration: none;
+        color:#66fcf1;
+        border:2px solid #66fcf1;
+        padding: 2vw;
+        border-radius: 81% 19% 28% 72% / 79% 67% 33% 21% ;
+        font-size: 2vh;
+        outline:none;
+        text-shadow: 0px 0px 1px #fff, 
+                    0px 0px 0.5px #fff;
+    }
+
+    /* Anchor tag on hover */
+    a:hover{
+        border-radius: 28% 72% 81% 19%  / 67% 59% 41% 33%;
+        color:white;
+        border:2px solid #66fcf1;
+        text-shadow: 0px 0px 1px #66fcf1, 
+                    0px 0px 0.5px #66fcf1;
+        background-color:#000;
+        color:white;
+    }
+
+
+    /* The form container */
+    .right{
+        width: 80vw;
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 7vh;
+    }
+
+    /* Why late fill details text and session message text */
+    .top{
+        align-self: center;
+        color: #ffffff;
+        background-color :#45a29e; 
+        background-image : linear-gradient(315deg, #45a29e 44%,#000 43%);
+        padding-left: 5vw;
+        padding-right: 5vw;
+        padding-top: 1vh;
+        padding-bottom:1vh;
+        border-radius: 1vw;
+        font-size: 2vh;
+        border-top:2px solid #c5c6c7;
+    }
+
+    /* form holding div */
+    .center{
+        display: flex;
+        justify-content:center;
+
+    }
+
+    /* The form */
+    form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 40vw;
+        height: 10vh;
+        justify-content: center;
+        gap: 2vh;
+    }
+
+    /* The input fields */
+    .first{
+        justify-content: space-evenly;
+    }
+
+    /* The input styling */
+    input{
+        width: 45vw;
+        height:4vh;
+        background-color: #000;
+        outline: none;
+        border-radius: 14px;
+        color:#fff;
+    }
+
+    /* Input on focus */
+    input:focus{
+        background-color:#45a29e;
+        color:#fff;
+        
+    }
+
+    /* input tag placeholder */
+    ::placeholder{
+        color:#fcfcfd;
+        font-size:1.5vh;
+    }
+
+    /* The login button */
+    input[type=submit]{
+        width:30vw;
+        height: 5vh;
+        text-align: center;
+        color:white;
+        background-image : linear-gradient(315deg, #45a29e 44%,#000 43%);
+        font-size: 2vh;
+        text-shadow: 0px 0px 1px #000, 
+            1px 1px 5px black;
+
+    }
+
+    /* The forgot password link */
+    .forgot{
+    border:none;
+    background-color:transparent;
+    width:20vw;
+    height:4vh;
+    padding:0;
+    display:flex;
+    align-self:center;
+    padding-left:3vw;
+    }
+
+    /* The forgot password link on hover */
+    .forgot:hover{
+        border:none;
+        background-color:transparent;
+        color:white;
+        text-shadow: 0px 0px 1px #66fcf1, 
+                0px 0px 2px #66fcf1;
+    }
+
+
+}
       
     
 
+@media only screen and (min-width: 901px) {
 
 
-
-
-@media only screen and (min-width: 1201px) {
-
-.signup{
+    /* The whole container */
+    .signup{
         position: relative;
         top:20%;
         margin:-10vh auto;
         padding:10vh;
-        background-color: black;
-        background-image: linear-gradient(315deg,   #1f2833 55%,  #66fcf1 50%);
+        background-image: linear-gradient(315deg,   rgba(31, 40, 51, 0.85) 55%,  rgba( 102, 252, 241, 0.85 )  50%);
+        backdrop-filter: blur( 0.0px );
+        -webkit-backdrop-filter: blur( 0.0px );
+        border-radius: 10px;
         color:#fcfcfd;
         width: 60vw;
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-radius: 100% / 20%   ;
-}
-/* 
-.left{}
-
-#image{
-        width:30vw;
-        height: 40vh;
-}
-.right{}
-
-.top{}
-
-.center{} */
-
-#image{
-        width:30vw;
-        height: 40vh;
     }
 
-.left{
-width: 30vw;
-color:#1f2833;
-font-size: 2vh;
+    /* The image styling */
+    #image{
+        width:30vw;
+        height: 40vh;
+        }
 
-}
+    /* The image holding container */
+    .left{
+        width: 30vw;
+        color:#1f2833;
+        font-size: 2vh;
 
+    }
 
-a{
+    /* The anchor tag */
+    a{
         background-color: #1f2833;
         width: 60px;
         text-decoration: none;
-        color:#66fcf1;
-        border:2px solid #66fcf1;
+        color:#52fff3;
+        border:2px solid black;
         padding: 1vw;
         border-radius: 81% 19% 28% 72% / 79% 67% 33% 21% ;
         font-size: 2vh;
-}
+        text-shadow: 0px 0px 1px #fff, 
+                        0px 0px 0.5px #fff;
+    }
 
-a:hover{
+    /* The anchor tag on hover */
+    a:hover{
+        border-radius: 28% 72% 81% 19%  / 67% 59% 41% 33%;
+        color:white;
+        text-shadow: 0px 0px 1px #66fcf1, 
+                    0px 0px 0.5px #66fcf1;
+    }
 
-/* background-color:#1f7973; */
-background-color:#45a29e;
-color:#070707;
-border:2px solid #1f2833;
-text-shadow: 0px 0px 1px #000, 
-               0px 0px 0.5px black;
-}
-
-
-.right{
+    /* The form holiding div */
+    .right{
         width: 30vw;
         height: 50vh;
         display: flex;
         justify-content: center;
-        /* align-items: center; */
         flex-direction: column;
         gap: 2rem;
-}
+    }
 
-
-
-    /* .hide{
-        display: none;
-    } */
-
+    /* The text holding div Why late fill details and session message */
     .top{
         align-self: center;
         color: #ffffff;
-        /* background-image: linear-gradient(190deg ,#45a29e,#000000, #3ce2d7); */
         background-image: linear-gradient(190deg ,#000000,#1f2833);
         padding: 0.5vw;
         border-radius: 0.3vw;
         border:2px solid #fcfcfd;
         font-size: 2vh;
         text-shadow: 0px 0px 1px #000, 
-               3px 3px 5px black;
+            3px 3px 5px black;
     }
 
+    /* The form holding div */
     .center{
         align-self:center ;
-        /* display: flex; */
         justify-self: center;
-        /* padding-left: 15vw; */
-        /* flex-direction: column; */
         
-
     }
 
+    /* The form */
     form{
         display: flex;
         justify-content: center;
@@ -431,16 +496,16 @@ text-shadow: 0px 0px 1px #000,
         gap: 2vh;
     }
 
+    /* The input fields block */
     .first{
         justify-content: center;
         justify-self: center;
     }
 
+    /* THe input field */
     input{
         width: 30vw;
         height:4vh;
-        /* background-color: #1f2833; */
-        /* background-image: linear-gradient(190deg ,#000000,#1f2833); */
         background-color: #000;
         outline: none;
         border-radius: 14px;
@@ -448,21 +513,22 @@ text-shadow: 0px 0px 1px #000,
         font-size:2vh;
     }
 
+    /* input on focus */
     input:focus{
         background-color:#45a29e;
         color:#fff;
         
     }
 
+    /* Input placeholder */
     ::placeholder{
         color:#fcfcfd;
         font-size:2vh;
     }
 
+    /* The login button */
     input[type=submit]{
-        /* background-image: linear-gradient(190deg ,#45a29e,#3ce2d7,#56b8b8); */
-        /* background-color: #1daa97; */
-        width:7vw;
+        width:8vw;
         height: 5vh;
         text-align: center;
         background-image: linear-gradient(190deg ,#000000,#1f2833);
@@ -470,46 +536,35 @@ text-shadow: 0px 0px 1px #000,
         border:2px solid white;
         border-radius: 0.5vh;
         font-size: 2vh;
+        display:flex;
+        align-self:center;
+        padding-left:2vw;
         
     }
 
-    .bottom{
-            align-self: center;
+    /* The forgot password link */
+    .forgot{
+    border:none;
+    background-color:transparent;
+    width:15vw;
+    height:4vh;
+    padding:0;
+    display:flex;
+    align-self:center;
+    font-size:2.3vh;
+    padding-left:7vw;
     }
 
-
+    /* The forgot password on hover */
+    .forgot:hover{
+        
+        border:none;
+        background-color:transparent;
+        color:white;
+        text-shadow: 0px 0px 1px #66fcf1, 
+                0px 0px 2px #66fcf1;
+    }
 
 }
 
-
-
-
-/* background-color: #3c9994; */
-        /* background-color: #1f2833;
-        background-color :#55efc4;*/
-        /* background-image : linear-gradient(315deg, #45a29e 64%,#1f2833 43%); */
-        /* background-image: linear-gradient(to right, #000000, #231c22, #373545, #3e536b, #39748a, #39748a, #39748a, #39748a, #3e536b, #373545, #231c22, #000000); */
-/* background-image: linear-gradient(190deg ,#45a29e,#3ce2d7,#56b8b8); */
-        /* background-color: #1f2833; */
-        /* background-image: linear-gradient(to right, #000000, #231c22, #373545, #3e536b, #39748a, #39748a, #39748a, #39748a, #3e536b, #373545, #231c22, #000000); */
-        /* background-image: linear-gradient(190deg ,#45a29e,#000000, #3ce2d7); */
-        /* background-color: #3c9994; */
-        /* /* background-color: #1f2833; */
-        /* text-shadow: 5px -2px 11px rgba(0,0,0, 1); */
-        /* font-weight:bolder; */
-        /* background-image: linear-gradient(315deg, #1f2833 50%,    #66fcf1 55%); */
-        /* background-image: linear-gradient(190deg ,#45a29e,#3ce2d7,#56b8b8); */
-        /* background-color: #1f2833; */
-        /* background-image: linear-gradient(to right, #000000, #231c22, #373545, #3e536b, #39748a, #39748a, #39748a, #39748a, #3e536b, #373545, #231c22, #000000); */
-        /* background-image: linear-gradient(190deg ,#45a29e,#000000, #3ce2d7); */
-        /* background-color: #3c9994; */
-        /* /* background-color: #1f2833; */
-        
-        /* text-shadow: 5px -2px 11px rgba(0,0,0, 1); */
-        /* font-weight:bolder; */
-        /* background-image: linear-gradient(315deg, #1f2833 50%,    #66fcf1 55%); */
-        /* background: rgb(0,0,0); */
-/* background: radial-gradient(circle, rgba(0,0,0,0.8214636196275386) 0%, rgba(42,167,165,1) 100%); #8a8a8a */
-
-/* background-image: linear-gradient(315deg, #1f2833 55%,   #48e6b9 50%); */
-/* </style> */
+</style>
