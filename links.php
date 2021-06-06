@@ -1,4 +1,5 @@
 
+<!-- This links used in various pages used when required -->
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,5 +10,4 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" crossorigin="anonymous" />
 
     <script src="https://use.fontawesome.com/f1c38e202d.js"></script>
-    
     
