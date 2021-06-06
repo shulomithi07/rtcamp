@@ -1,5 +1,6 @@
 <style>
 
+/* THe div of video tag for my convenience */
 .videoo{
     display:flex;
     flex-direction:row;
@@ -9,7 +10,7 @@
     align-items:center;
 }
 
-
+/* Second div for video to give id I used it */
 .row{
     display:flex;
     flex-direction:row;
@@ -17,6 +18,7 @@
     
 }
 
+/* The hand symbol div */
 .dropbtn {
   background-color: transparent;
   color: white;
@@ -24,16 +26,19 @@
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% ;
 }
 
+/* The video container  */
 .video-container {
   position: relative;
   display: inline-block;
 }
 
+/* div holding hand symbol and the content */
 .dropdown{
     position:relative;
     display:inline-block;
 }
 
+/* The anchor tags holding container */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -45,6 +50,7 @@
   left:0%;
 }
 
+/* The anchor tags in the container */
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -52,10 +58,13 @@
   display: block;
 }
 
+/* The anchors tags on hover to add depth to visual pleasing */
 .dropdown-content a:hover {background-color: #ddd;}
 
+/* Display of the links on hover of the hand symbol */
 .dropdown:hover .dropdown-content {display: block;}
 
+/* Color of the dropbtn which means hand symbol */
 .dropdown:hover .dropbtn {background-color: white; color:black;}
 
 
