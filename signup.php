@@ -210,7 +210,7 @@
                         
                     }
 
-                // If data is not inserted
+                }// If data is not inserted
                 else{
                     ?>
                     <script>

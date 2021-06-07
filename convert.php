@@ -3,7 +3,7 @@
 session_start();
 
 // ffmpeg file used to convert the given file
-require_once('./vendor/autoload.php');
+require_once('lib/vendor/autoload.php');
 
 include 'connection.php';
 

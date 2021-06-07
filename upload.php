@@ -5,7 +5,7 @@ session_start();
 include "connection.php";
 
 // INcluding the ffmpeg autoload for functioning
-require_once 'vendor/autoload.php';
+require_once 'lib/vendor/autoload.php';
 
 // If the user didn't select anyfile and clicked submit 
 if (empty($_FILES["file1"]["tmp_name"])){
