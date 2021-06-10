@@ -37,6 +37,10 @@ else{
         if(move_uploaded_file($fileTmpLoc, "uploads/$fileName")){
         
             // Storing the extension and all the other details from the file
+
+            $user = $_SESSION["email"];
+
+            $name = explode("@",$user);
             $extention = explode(".",$fileName);
 
             // Creating ffmpeg instance
@@ -49,19 +53,19 @@ else{
             $videoFile= 'uploads/'.$fileName;
             
             // Thumbnail gif location
-            $gif = 'uploads/gif/'.$extention[0].'.'.'gif';
+            $gif = 'uploads/gif/'.$name[0]."_".$extention[0].'.'.'gif';
             
             // Where to store the converted mp4 files in the local storage
-            $outputFile='uploads/output/'.$extention[0].'.'.'mp4';
+            $outputFile='uploads/output/'.$name[0]."_".$extention[0].'.'.'mp4';
             
             // User given text from the form
             $text = $_POST['text'];
 
             // The static image for thumbnail when user doesn't hover
-            $thumbnail = "uploads/gif/thumbnail/".$extention[0].'.'.'jpg';
+            $thumbnail = "uploads/gif/thumbnail/".$name[0]."_".$extention[0].'.'.'jpg';
             
             // For database to store  in this format
-            $destinationfile = 'uploads/output/'.$extention[0].'.'.'mp4';
+            $destinationfile = 'uploads/output/'.$name[0]."_".$extention[0].'.'.'mp4';
             
             $email = $_SESSION['email'];
             

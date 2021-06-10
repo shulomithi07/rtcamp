@@ -13,10 +13,12 @@ include 'connection.php';
 if(isset($_GET['videoname']) and isset($_GET['format'])){
 
     $videoname = $_GET['videoname'];
-    $getextension = explode(".",$videoname);
+
+    $name = explode(".",$videoname);
+    $getextension = explode("_",$name[0]);
     $format = $_GET['format'];
     $path = 'uploads\output\\'.$videoname;
-    $outputpath ='uploads\\convert\\'.$getextension[0].".".$format;
+    $outputpath ='uploads\\convert\\'.$getextension[1].".".$format;
     
     // Creating instance of the ffmpeg
     $ffmpeg = FFMpeg\FFMpeg::create();
