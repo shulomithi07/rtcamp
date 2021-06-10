@@ -18,7 +18,7 @@ body{
 
 /* background-image */
 body{
-    background-image:url("images\\5153935.jpg");
+    background-image:url("images/feedback1.jpg");
 }
 
 
@@ -39,7 +39,7 @@ body{
             top:0%;
             margin:7vh auto;
             padding:10vh;
-            background-image: linear-gradient(315deg, rgba(102, 252, 241, 0.7) 55%, rgba(55, 100, 155, 0.2) 50%);
+            background-image: linear-gradient(315deg, rgba(102, 252, 241, 0.7) 55%, rgba(35, 40, 51, 0.5) 50%);
             color:#fcfcfd;
             width: 60vw;
             display: flex;
@@ -372,16 +372,22 @@ body{
 
     }
 
+    .btn{
+        display:flex;
+        justify-content:center;
+    }
     /* The forgot password link */
     .forgot{
     border:none;
     background-color:transparent;
+    border-radius:2px;
     width:20vw;
     height:4vh;
     padding:0;
     display:flex;
+    justify-content:center;
     align-self:center;
-    padding-left:3vw;
+    
     }
 
     /* The forgot password link on hover */
@@ -546,13 +552,14 @@ body{
     .forgot{
     border:none;
     background-color:transparent;
+    border-radius:2px;
     width:15vw;
     height:4vh;
     padding:0;
     display:flex;
+    justify-content:center;
     align-self:center;
     font-size:2.3vh;
-    padding-left:7vw;
     }
 
     /* The forgot password on hover */

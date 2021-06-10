@@ -10,7 +10,7 @@
 body{
     
     background-color: #55efc4;
-    background-image: url("images/5153935.jpg");
+    background-image: url("images/feedback1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -326,7 +326,7 @@ body{
         top:50%;
         margin:7vh auto;
         padding:10vh;
-        background-image: linear-gradient(315deg, rgba(3, 19, 1,0.7) 55%,  rgba( 102, 252, 241, 0.65 )  50%);
+        background-image: linear-gradient(315deg, rgba(31, 40, 51, 0.85) 55%,  rgba( 102, 252, 241, 0.65 )  50%);
         border-radius: 10px;
         border: 1px solid rgba( 255, 255, 255, 0.18 );
         color:#fcfcfd;
