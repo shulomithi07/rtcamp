@@ -65,11 +65,11 @@ If the user is already an account holder and has some videos uploaded in the dat
 - ##### upload form:
 
         
-         The user uploads a video file in the given input field.
-         Writes a watermark text for the video watermark 
-         And also asked for the size of the watermark in pixels
-         When the user fills in these details and submits, the progress bar shows the 
-         upload status.
+   The user uploads a video file in the given input field.
+   Writes a watermark text for the video watermark 
+   And also asked for the size of the watermark in pixels
+   When the user fills in these details and submits, the progress bar shows the 
+   upload status.
 
 - ##### upload.php
  
@@ -89,11 +89,11 @@ If the user is already an account holder and has some videos uploaded in the dat
         
  _There is a dropdown menu for every video with an icon of a hand._
 
-        When the user hovers over the hand icon, a bunch of options 
-        [.wmv, .ogg, .webm, rotate, delete] are shown. 
-        The user can do any of the mentioned tasks on the video.
-        If the user wants to convert video format, then the user needs to hover on hand and find the desired format.
-        After deciding the format user can click on the corresponding video format and convert the video.
+  When the user hovers over the hand icon, a bunch of options 
+  [.wmv, .ogg, .webm, rotate, delete] are shown. 
+  The user can do any of the mentioned tasks on the video.
+  If the user wants to convert video format, then the user needs to hover on hand and find the desired format.
+  After deciding the format user can click on the corresponding video format and convert the video.
 
 - ##### Convert.php
     
@@ -109,34 +109,34 @@ If the user is already an account holder and has some videos uploaded in the dat
 
 - ##### Making of Thumbnail
 
-        
-    When the user uploads the file with watermark and font size,
-    The Conversion of user-submitted video to MP4 happens in the background.
-    The Process of extraction of the image and the gif from the video happens with the help of  FFMPEG-PHP.
-    The image, gif are also called along with the video[location of the destination files are in the database].
-     The swapping of the thumbnail and the gif occurs with the help of javascript mouse events like mouseover and mouse-out.
 
-    #
-    ![Thumbnail Image](https://github.com/shulomithi07/rtcamp/blob/master/Displayimages/thumbnail.gif "THUMBNAIL")    
-    #
+ When the user uploads the file with watermark and font size,
+ The Conversion of user-submitted video to MP4 happens in the background.
+ The Process of extraction of the image and the gif from the video happens with the help of  FFMPEG-PHP.
+ The image, gif are also called along with the video[location of the destination files are in the database].
+  The swapping of the thumbnail and the gif occurs with the help of javascript mouse events like mouseover and mouse-out.
+
+   #
+   ![Thumbnail Image](https://github.com/shulomithi07/rtcamp/blob/master/Displayimages/thumbnail.gif "THUMBNAIL")    
+   #
 ## WaterMark
 
-        
-        The user should give a watermark and font size while uploading the video,
-        but the font size is not mandatory.
-        The defaultValue of the fontsize replaces if user didn't specify the required fontsize
-        At the bottom right corner of the video, the watermark inserts with the help of the FFMPEG-PHP library.
+
+   The user should give a watermark and font size while uploading the video,
+   but the font size is not mandatory.
+   The defaultValue of the fontsize replaces if user didn't specify the required fontsize
+   At the bottom right corner of the video, the watermark inserts with the help of the FFMPEG-PHP library.
 
    #
    ![Watermark Image](https://github.com/shulomithi07/rtcamp/blob/master/Displayimages/watermark.gif "WATERMARK")    
    #
 ## ROTATE
-        
-        As I described earlier in the above context, there is a dropdown menu for every video,
-        and there are multiple functionalities to perform on a video.
-        One among them is to rotate the video. When the user clicks on the rotate button,
-        the page redirects to the rotate.php page. 
-        Here the video rotates clockwise and anti-clockwise direction on a button click.
+
+   As I described earlier in the above context, there is a dropdown menu for every video,
+   and there are multiple functionalities to perform on a video.
+   One among them is to rotate the video. When the user clicks on the rotate button,
+   the page redirects to the rotate.php page. 
+   Here the video rotates clockwise and anti-clockwise direction on a button click.
  
    #
    ![Rotate Image](https://github.com/shulomithi07/rtcamp/blob/master/Displayimages/rotate.gif "ROTATE")    
@@ -144,9 +144,9 @@ If the user is already an account holder and has some videos uploaded in the dat
  
 ## RESPONSIVE
 
-        This website is a mobile-friendly website which implies that the website looks good in any viewport, 
-        and it is user-friendly in any viewport. It might be a mobile device or a tablet, or even on a laptop.
-        It functions all fine.
+   This website is a mobile-friendly website which implies that the website looks good in any viewport, 
+   and it is user-friendly in any viewport. It might be a mobile device or a tablet, or even on a laptop.
+   It functions all fine.
   #
    ![Responsive Image](https://github.com/shulomithi07/rtcamp/blob/master/Displayimages/responsive.gif "RESPONSIVE")    
    #
