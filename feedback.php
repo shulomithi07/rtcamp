@@ -4,17 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    
+        include "links.php";
+    ?>
     <style>
     
         /* image and its placement */
         body{
             
-            background-image: url("images/feedback.jpg");
+            background-image: url("images/feedback1.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
+            
+            
+        }
+
+        .main{
             display:flex;
+            flex-direction:row-reverse;
             justify-content:center;
+            
+
+        }
+
+
+        .home{
+            padding-top:3vh;
+            margin-right:69vw;
             
         }
 
@@ -24,8 +42,8 @@
             position:fixed;
             top:10%;
             background: rgba( 155, 155, 155, 0.15 );
-            box-shadow: 0 8px 32px 0 rgba( 231, 238, 235, 0.37 );
-            backdrop-filter: blur( 1px );
+            box-shadow: 0 8px 32px 0 rgba( 0, 0, 0, 0.7 );
+            backdrop-filter: blur( 2px );
             -webkit-backdrop-filter: blur( 1px );
             border-radius: 10px;
             border: 1px solid rgba( 255, 255, 255, 0.18 );
@@ -131,6 +149,20 @@
             align-self:center;
         }
 
+        
+        a{
+            color:white;
+        }
+
+        a:active{
+            color:white;
+        }
+
+        a:visited{
+            color:white;
+        }
+
+
 
         /* To adjust width of form for mobile devices */
         @media only screen and (max-width: 600px) {
@@ -168,19 +200,26 @@
 </head>
 <body>
     
-        <!-- Form holding container -->
-    <div class="feedback">
-        <h4>YOUR FEEDBACK CAN IMPACT!</h4>
-        <div class="form">
-            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
-
-                <div class="text"><input type="text" name="name" id="name" placeholder="name" required></div><br>
-                <div class="text"><input type="text" name="subject" id="subject" placeholder="subject" required></div><br>
-                <div><textarea name="message" id="" cols="30" rows="10" placeholder="Your feedback" maxlenght="300" required></textarea></div><br><br>
-                <div class="btn"><input type="submit" name="submit" value="send"></div>
-            </form>
+    <div class="main">
+        <div class="home">
+            <a href="homepage.php">
+                <i class="fas fa-arrow-circle-left"></i>
+            </a>
         </div>
-        
+            <!-- Form holding container -->
+        <div class="feedback">
+            <h4>YOUR FEEDBACK CAN IMPACT!</h4>
+            <div class="form">
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
+
+                    <div class="text"><input type="text" name="name" id="name" placeholder="name" required></div><br>
+                    <div class="text"><input type="text" name="subject" id="subject" placeholder="subject" required></div><br>
+                    <div><textarea name="message" id="" cols="30" rows="10" placeholder="Your feedback" maxlenght="300" required></textarea></div><br><br>
+                    <div class="btn"><input type="submit" name="submit" value="send"></div>
+                </form>
+            </div>
+            
+        </div>
     </div>
 </body>
 </html>
