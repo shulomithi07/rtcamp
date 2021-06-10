@@ -29,6 +29,7 @@ nav{
 }
 
 
+
 /* The anchor tags of nav bar for laptops and large devices */
 nav a{
     background-color: rgba(31, 40, 51, 0.4);
@@ -40,6 +41,11 @@ nav a{
     border:2px solid #45a29e;
     padding: 2vh;
     margin-bottom: 3vh;
+    box-shadow: 0 3px 5px 0 rgba( 102, 252, 250, 0.5 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 2px solid rgba( 102, 252, 250, 0.25 );
 }
 
 /* The hamburger symbol div */
@@ -70,8 +76,32 @@ nav a{
 /* The user name of the first block */
 .greeting h3{
     align-self:center;
+    animation: colorchange 20s infinite alternate;
+    -webkit-animation: colorchange 20s infinite alternate;
 }
 
+@-webkit-keyframes colorchange {
+    0%{
+        color:#ffffff;
+    }
+    10%{
+        color:#ccffe6;
+    }
+    50%{
+        color:#66fcf1;
+    }
+
+    90%{
+        color:#01c5c4;
+    }
+
+    100%{
+        color:#000000;
+    }
+}
+#spin{
+    display:none;
+}
 
 /* The css for devices greater than 1201px */
 @media only screen and (min-width: 1201px) {
@@ -84,7 +114,7 @@ nav a{
 
     /* The first block in homepage where user name and an image is displayed */
     .intro{
-        background-color: rgba(31, 40, 51, 0.6);
+        background-color: rgba(231, 240, 251, 0.07);
         border: #45a29e;
         color:#66fcf1;
         width:100vw;
@@ -175,7 +205,7 @@ nav a{
         width:100vw;
         height: 50vh;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         font-size: 3vw;
         padding: 2vw;
@@ -184,6 +214,25 @@ nav a{
         margin-bottom: 10vh;
 
     }
+
+    .greeting{
+        width:100vw;
+        height:20vh;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+        font-size:4.5vw;
+        flex-direction:wrap;
+        gap:1vw;
+
+    }
+
+    /* The user name styling */
+    .greeting h3{
+        align-self:center;
+    }
+
 
     /* The image of two girls */
     .image{
@@ -346,14 +395,25 @@ nav a{
         color:white;
     }
 
+    input[type=number]{
+        color:white;
+    }
+
+    
+
     /* The upload button */
     .btn{
 
         width:10vw;
         height: 5vh;
         border-radius: 2vh;
-        background: rgb(63,250,251);
-        background: radial-gradient(circle, rgba(63,250,251,1) 0%, rgba(69,162,158,1) 100%);
+        background-color:rgba(31,40,51,0.6);
+        box-shadow: 0 3px 5px 0 rgba( 102, 252, 250, 0.5 );
+        backdrop-filter: blur( 20px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 2px solid rgba( 102, 252, 250, 0.25 );
+        color:white;
         font-size: 1vw;
         text-shadow: 0px 0px 1px #000, 
                 0px 0px 2px black;
@@ -401,6 +461,10 @@ nav a{
     input[type=text]{
         color:white;
     }
+    
+    input[type=number]{
+        color:white;
+    }
 
     /* Upload button div */
     .btn{
@@ -409,7 +473,13 @@ nav a{
         height: 5vh;
         border-radius: 2vh;
         background: rgb(63,250,251);
-        background: radial-gradient(circle, rgba(63,250,251,1) 0%, rgba(69,162,158,1) 100%);
+        background-color:rgba(31,40,51,0.6);
+        box-shadow: 0 3px 5px 0 rgba( 102, 252, 250, 0.5 );
+        backdrop-filter: blur( 20px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 2px solid rgba( 102, 252, 250, 0.25 );
+        color:white;
         font-size: 2.5vw;
         text-shadow: 0px 0px 1px #000, 
                 0px 0px 2px black;
@@ -459,6 +529,10 @@ nav a{
         color:white;
     }
 
+    input[type=number]{
+        color:white;
+    }
+
 
     /* The upload button */
     .btn{
@@ -467,7 +541,13 @@ nav a{
         height: 3vh;
         border-radius: 2vh;
         background: rgb(63,250,251);
-        background: radial-gradient(circle, rgba(63,250,251,1) 0%, rgba(69,162,158,1) 100%);
+        background-color:rgba(31,40,51,0.6);
+        box-shadow: 0 3px 5px 0 rgba( 102, 252, 250, 0.5 );
+        backdrop-filter: blur( 20px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 2px solid rgba( 102, 252, 250, 0.25 );
+        color:white;
         font-size: 2.5vw;
         text-shadow: 0px 0px 1px #000, 
                 0px 0px 2px black;
@@ -492,6 +572,11 @@ nav a{
     .image2{
         align-self: flex-end;
     }
+
+    input{
+        height:5vh;
+    }
+
 }
 
 /* The heading for VIDEOS */
@@ -549,5 +634,9 @@ nav a{
 input[type=text]{
         color:white;
     }
+
+input[type=number]{
+    color:white;
+}
 
 </style>

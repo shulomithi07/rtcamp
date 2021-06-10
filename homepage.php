@@ -75,11 +75,21 @@
             var percent = (event.loaded / event.total) * 100;
             _("progressBar").value = Math.round(percent);
             _("status").innerHTML = Math.round(percent)+"% uploaded... please wait while adding watermark";
+            var progress = document.getElementById("progressBar").value;
+            console.log(progress);
+            if(progress == 100){
+                document.getElementById("spin").style.display = "inline";
+            }
         }
         // When The there is response after the ajax call it is shown on the homepage in the status h3 tag
         function completeHandler(event){
             _("status").innerHTML = event.target.responseText;
             _("progressBar").value = 0;
+            var progress = document.getElementById("progressBar").value;
+            console.log(progress);
+            if(progress == 0){
+                document.getElementById("spin").style.display = "none";
+            }
         }
         // If Error occurs The upload Failed message is shown
         function errorHandler(event){
@@ -183,9 +193,11 @@
             
                 <input type="text" class="file1" name="textword" id="text1"placeholder="Write your watermark text here!"><br><br>
             
-                <input type="text" class="file1" name="size" id="text2"placeholder="Size of watermark in pixels"><br><br>
+                <input type="number" class="file1" name="size" id="text2"placeholder="Size of watermark in pixels"><br><br>
                 <!-- Process bar to show the process of the video upload -->
-                <progress id="progressBar" value="0" max="100" style="width:300px;"></progress><br><br>
+                <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+                <span id="spin"><img src="images/spin.gif" alt="hourGlass"></span>
+                <br><br>
             
                 <!-- Upload function is called when the button is clicked -->
                 <input class="btn" id="button" type="button" value="Upload" onclick="uploadFile()">
