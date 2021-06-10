@@ -6,28 +6,7 @@ session_start();
 include 'connection.php';
 include 'css/loginCSS.php';
 
-// redirecting to homepage if session exists
-if(isset($_SESSION['nickname'])){
 
-    $checkEmailQuery = "SELECT * FROM users WHERE email = '$email' and status ='active'";
-                
-    // Checking the database
-    $querycheck = mysqli_query($con,$checkEmailQuery);
-        
-    // If the result set retured more than 0 rows
-    if (mysqli_num_rows(mysqli_query($con,$checkEmailQuery)) > 0) {
-           
-        ?>
-            <script>
-
-                location.replace("homepage.php");
-
-            </script>
-    <?php
-
-    }
-   
-}
 ?>
 
 
@@ -87,7 +66,7 @@ if(isset($_SESSION['nickname'])){
                     </div><br>
 
             
-                        <input class="top" type="submit" name="submit" value="LOGIN">
+                        <input class="top btn" type="submit" name="submit" value="LOGIN">
                         <!-- link to forgot password -->
                         <a class="forgot" href="forgotPassword.php">forgot Password?</a> 
             </div>
