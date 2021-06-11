@@ -304,6 +304,7 @@ if(isset($_POST['submit'])){
             <?php
         }
     // If query didn't execute this message will be shown in the reset password page
+    }
     else{
         $_SESSION['msg'] = "Something happened please try again!";
         ?>
