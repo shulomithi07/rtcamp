@@ -4,7 +4,7 @@
 ##
 ##
 
-This is a video encoding challenge which is a part of recruitment process held in the month of april-may 2021. In this challenge there are 4 major tasks (upload,convert,thumbnail,watermark,transformer) given to be performed on the video.The languages used in this challenge are PHP, HTML, CSS, JAVASCRIPT. And the libraries used in this projects are FFMPEG for video encoding and composer.Hosted with the help of google cloud. A mobile-ready application it is.
+In this project there are 4 major tasks (upload,convert,thumbnail,watermark,transformer) are performed on the video.The languages used in are PHP, HTML, CSS, JAVASCRIPT. And the libraries used in this projects are FFMPEG for video encoding and composer.Hosted with the help of google cloud. A mobile-ready application it is.
 
 
 ## Features of the website
